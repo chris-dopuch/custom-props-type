@@ -1,11 +1,20 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import App from './App';
+import { EventEmitter } from 'events';
+import { registerApplication, start } from 'single-spa';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root') as HTMLElement
+const customProps = {
+  name: 'App Name',
+  system:  new EventEmitter(),
+};
+
+registerApplication(
+  'App',
+  () => import('./App'),
+  () => true,
+  customProps,
 );
+
+start();
+
 registerServiceWorker();
