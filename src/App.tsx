@@ -1,4 +1,3 @@
-import EventEmitter from 'events';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import singleSpaReact from 'single-spa-react';
@@ -7,7 +6,6 @@ import logo from './logo.svg';
 
 interface IAppProps {
   name: string;
-  system: EventEmitter;
 }
 
 class App extends React.Component<IAppProps> {
